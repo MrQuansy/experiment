@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
+    <title>添加申请</title>
+
+    <link rel="stylesheet" type="text/css" href="css/selectFilter.css" />
+    <style type="text/css">
+     * { margin: 0; padding: 0; }
+        html { height: 100%; }
+    body { height: 100%; background: #fff url(images/background.png) 50% 50% no-repeat; background-size: cover;}
+	body {
+		padding: 30px;
+	}
+ .dowebok { position: absolute; left: 30%; top: 10%; width: 530px; height: 500px; border: 1px solid #fff; border-radius: 20px; overflow: hidden;}
+	.item {
+		width: 240px;
+		height: 32px;
+		margin: 100px auto;
+	}
+
+    .form-item input { width: 240px; height: 35px;padding-left: 10px; border: 1px solid #fff; border-radius: 0px; font-size: 16px; color: #000;  }
+    .form-item button { width: 100px; height: 50px; border: 0; border-radius: 25px; font-size: 18px; color: #1f6f4a; outline: none; cursor: pointer; background-color: #fff; }
+    .button1{
+        position:absolute;left:25%;top:85%;
+    }
+    .button3{
+        position:absolute;left:55%;top:85%;
+    }
+    .input1{
+        position:absolute;left:40%;top:17%;
+    }
+
+    .LabelFont{
+        font-size: 16px;
+    }
+    .label1{
+        position:absolute;left:15%;top:17%;
+    }
+    .label2{
+        position:absolute;left:15%;top:30%;
+    }
+    .label3{
+        position:absolute;left:15%;top:43%;
+    }
+     .label4{
+        position:absolute;left:15%;top:56%;
+    }
+     .label5{
+        position:absolute;left:15%;top:69%;
+    }
+
+</style>
+
+</head>
+<body>
+<div class="dowebok">
+<div class="item">
+
+    <div class="LabelFont">
+        <div class="label1" style="color:white"><p>App名称</p></div>
+        <div class="label2" style="color:white"><p>业务环节分类</p></div>
+        <div class="label3" style="color:white"><p>适用范围分类</p></div>
+        <div class="label4" style="color:white"><p>知识类型分类</p></div>
+        <div class="label5" style="color:white"><p>安全等级</p></div>
+    </div>
+    <!-- 这里开始 -->
+    <form name="form" action="finishApp" method="post">
+    <div class="form-item">
+        <div class="input1"><input id="appname" type="text" name="appname" autocomplete="off" placeholder="请输入App名称"></div>
+    </div>
+    <div class="filter-box">
+        <div class="filter-text">
+            <input class="filter-title" type="text" name="BusinessAspect" readonly placeholder="pleace select" />
+            <i class="icon icon-filter-arrow"></i>
+        </div>
+        <select name="filter">
+            <option value="new" disabled>业务环节</option>
+            <option value="研发设计工业APP">研发设计工业APP</option>
+            <option value="生产制造工业APP">生产制造工业APP</option>
+            <option value="运维服务工业APP">运维服务工业APP</option>
+            <option value="经营管理工业APP">经营管理工业APP</option>
+        </select>
+    </div>
+
+    <div class="filter-box1">
+        <div class="filter-text">
+            <input class="filter-title" type="text" name="ApplicationRange" readonly placeholder="pleace select" />
+            <i class="icon icon-filter-arrow"></i>
+        </div>
+        <select name="filter">
+            <option value="new" disabled>适用范围</option>
+            <option value="基础共性工业APP">基础共性工业APP</option>
+            <option value="行业通用工业APP">行业通用工业APP</option>
+            <option value="企业专用工业APP">企业专用工业APP</option>
+            <option value="其他工业APP">其他工业APP</option>
+        </select>
+    </div>
+
+    <div class="filter-box2">
+        <div class="filter-text">
+            <input class="filter-title" type="text" name="knowledgeType" readonly placeholder="pleace select" />
+            <i class="icon icon-filter-arrow"></i>
+        </div>
+        <select name="filter">
+            <option value="new" disabled>知识类型</option>
+            <option value="unaudited">业务信息化类</option>
+            <option value="nothrough">数据分析类</option>
+            <option value="audit">知识建模类</option>
+        </select>
+    </div>
+    <div class="filter-box3">
+        <div class="filter-text">
+            <input class="filter-title" type="text" name="SaftyLevel" readonly placeholder="pleace select" />
+            <i class="icon icon-filter-arrow"></i>
+        </div>
+        <select name="filter">
+            <option value="new" disabled>安全等级</option>
+            <option value="unaudited">安全等级一</option>
+            <option value="nothrough">安全等级二</option>
+            <option value="audit">安全等级三</option>
+            <option value="audited">安全等级四</option>
+            <option value="passed">安全等级五</option>
+        </select>
+    </div>
+    <div class="form-item">
+        <div class="button1"><button id="submit">提 交</button></div>
+
+    </div>
+    </form>
+    <div class="form-item">
+    <div class="button3"><button value="return" onclick="location.href='/MainPage';">返 回</button></div>
+    </div>
+        <!-- 这里结束 -->
+
+</div>
+</div>
+<!--
+
+	select   --  name 可以接收选择的值【用于表单提交  名称自定义】
+
+	option   --  1.  value    传给后台的参数
+				 1.  selected 设置默认选中
+				 2.  disabled 设置禁止选则
+
+-->
+
+<script type="text/javascript" src="js/jquery.min.js"></script>
+<script type="text/javascript" src="js/selectFilter.js"></script>
+<script type="text/javascript">
+	//本小插件支持移动端哦
+
+	//这里是初始化
+	$('.filter-box').selectFilter({
+		callBack : function (val){
+			//返回选择的值
+			console.log(val+'-是返回的值')
+		}
+	});
+
+	$('.filter-box1').selectFilter({
+		callBack : function (val){
+			//返回选择的值
+			console.log(val+'-是返回的值')
+		}
+	});
+	$('.filter-box2').selectFilter({
+		callBack : function (val){
+			//返回选择的值
+			console.log(val+'-是返回的值')
+		}
+	});
+	$('.filter-box3').selectFilter({
+		callBack : function (val){
+			//返回选择的值
+			console.log(val+'-是返回的值')
+		}
+	});
+</script>
+<div style="text-align:center;">
+</div>
+
+</body>
+</html>
